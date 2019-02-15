@@ -21,29 +21,38 @@ const ScrollView = createReactClass({
     return ReactNative.findNodeHandle(this._scrollViewRef);
   },
   scrollTo: function({ x, y, animated }) {
-     UIManager.dispatchViewManagerCommand(
-      this.getScrollableNode(),
-      UIManager.DirectedScrollView.Commands.scrollTo,
-      [x || 0, y || 0, animated !== false],
-    );
+    const scrollableNode = this.getScrollableNode();
+    if (scrollableNode) {
+      UIManager.dispatchViewManagerCommand(
+        scrollableNode,
+        UIManager.DirectedScrollView.Commands.scrollTo,
+        [x || 0, y || 0, animated !== false],
+      );
+    }
   },
   zoomToStart: function({ animated }) {
-     UIManager.dispatchViewManagerCommand(
-      this.getScrollableNode(),
-      UIManager.DirectedScrollView.Commands.zoomToStart,
-      [animated !== false],
-    );
+    const scrollableNode = this.getScrollableNode();
+    if (scrollableNode) {
+      UIManager.dispatchViewManagerCommand(
+        scrollableNode,
+        UIManager.DirectedScrollView.Commands.zoomToStart,
+        [animated !== false],
+      );
+    }
   },
   updateContentOffsetIfNeeded: function() {
-    if (Platform.OS === 'android'){
+    if (Platform.OS === 'android') {
       return;
     }
     setTimeout(() => {
-      UIManager.dispatchViewManagerCommand(
-        this.getScrollableNode(),
-        UIManager.DirectedScrollView.Commands.updateContentOffsetIfNeeded,
-        [],
-      );
+      const scrollableNode = this.getScrollableNode();
+      if (scrollableNode) {
+        UIManager.dispatchViewManagerCommand(
+          scrollableNode,
+          UIManager.DirectedScrollView.Commands.updateContentOffsetIfNeeded,
+          [],
+        );
+      }
     }, 0);
   },
   _scrollViewRef: null,
@@ -60,7 +69,7 @@ const ScrollView = createReactClass({
   },
   render: function() {
     return (
-      <NativeScrollView 
+      <NativeScrollView
         {...this.props}
         ref={this._setScrollViewRef}
         onScrollBeginDrag={this.scrollResponderHandleScrollBeginDrag}
