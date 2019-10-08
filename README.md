@@ -29,8 +29,11 @@ The following methods are supported:
 
 ## Installation
 
-- `npm install react-native-directed-scrollview --save`
-- `react-native link` (or `rnpm link`)
+- `yarn add react-native-directed-scrollview`
+- `react-native link`
+- `cd ios && pod install`
+
+Verify that `pod 'react-native-directed-scrollview', :path => '../node_modules/react-native-directed-scrollview'` has been added to your Podfile
 
 ## Usage
 
@@ -54,13 +57,13 @@ export default class Example extends Component {
         style={styles.container}
       >
         <ScrollViewChild scrollDirection={'both'}>
-          // multi-directional scrolling content here...      
+          // multi-directional scrolling content here...
         </ScrollViewChild>
         <ScrollViewChild scrollDirection={'vertical'}>
-          // vertically scrolling content here...      
+          // vertically scrolling content here...
         </ScrollViewChild>
         <ScrollViewChild scrollDirection={'horizontal'}>
-          // horizontally scrolling content here...      
+          // horizontally scrolling content here...
         </ScrollViewChild>
       </ScrollView>
     );

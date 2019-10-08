@@ -1,6 +1,6 @@
 {
   "name": "react-native-directed-scrollview",
-  "version": "1.3.6",
+  "version": "1.3.8",
   "description": "A natively implemented scrollview component which lets you specify different scroll directions for child content.",
   "main": "index.js",
   "scripts": {
@@ -21,17 +21,9 @@
     "direction"
   ],
   "peerDependencies": {
-    "react-native": ">=0.43.4"
+    "react-native": ">=0.59.0"
   },
   "nativePackage": true,
-  "rnpm": {
-    "android": {
-      "packageInstance": "new DirectedScrollViewPackage()"
-    },
-    "ios": {
-      "project": "ios/RCTDirectedScrollView.xcodeproj"
-    }
-  },
   "author": "Chris Fisher",
   "license": "MIT",
   "bugs": {
