@@ -27,8 +27,11 @@ The following methods are supported:
 | --- | --- | --- |
 | `scrollTo` | `scrollTo({x: 100, y: 100, animated: true})` | Scrolls to a given x and y offset. |
 
-## Installation
+## Installation (autolinking)
+- `yarn add react-native-directed-scrollview`
+- `cd ios && pod install`
 
+### Manual linking
 - `yarn add react-native-directed-scrollview`
 - `react-native link`
 - `cd ios && pod install`
