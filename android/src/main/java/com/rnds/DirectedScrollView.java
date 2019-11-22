@@ -363,11 +363,19 @@ public class DirectedScrollView extends ReactViewGroup {
   }
 
   private float getContentContainerWidth() {
-    return getChildAt(0).getWidth() * scaleFactor;
+    int wholeWidth = 0;
+    for (int i = 0; i < getChildCount(); i++) {
+      wholeWidth = getChildAt(i).getWidth();
+    }
+    return wholeWidth * scaleFactor;
   }
 
   private float getContentContainerHeight() {
-    return getChildAt(0).getHeight() * scaleFactor;
+    int wholeHeight = 0;
+    for (int i = 0; i < getChildCount(); i++) {
+      wholeHeight += getChildAt(i).getHeight();
+    }
+    return wholeHeight * scaleFactor;
   }
 
   private float getMaxScrollX() {
