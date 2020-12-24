@@ -21,7 +21,8 @@
     "direction"
   ],
   "peerDependencies": {
-    "react-native": ">=0.59.0"
+    "react-native": ">=0.59.0",
+    "create-react-class": "15.6.3"
   },
   "nativePackage": true,
   "author": "Chris Fisher",
